@@ -1,0 +1,90 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+.btn {
+    color: var(--btn-color, black);
+    border: 2px solid var(--btn-color, black);
+    position: relative;
+    isolation: isolate;
+    display: inline-block;
+    padding: .5em 1.5em;
+    background: 0;
+    font-family: inherit;
+    text-decoration: none;
+    line-height: inherit;
+    transition: color 300ms linear;
+}
+
+.btn-clste {
+--btn-color: teal;
+--trans: bottom;
+}
+
+.btn-morado {
+--btn-color: purple;
+--trans: right;
+}
+
+.btn-rojo {
+--btn-color: firebrick;
+}
+
+.btn:hover,
+.btn:focus { 
+  color: white;
+ 
+}
+
+.btn::after {
+  content:'';
+  position: absolute; 
+  inset:0;
+  z-index: -1;
+  background: var(--btn-color);
+  transform: scale(0 , 0);
+  transform-origin: var(--trans, center);
+  transition: transform 300ms ease;
+}
+
+.btn:hover::after {
+  transform: scale(1 , 1);
+}
+
+.btn + .btn {
+  margin-left: 2em;
+}
+
+/*.btn-clste:hover,
+.btn-clste:focus { 
+  background: var(--btn-color);
+}
+
+.btn-morado:hover,
+.btn-morado:focus { 
+  background: var(--btn-color);
+}
+
+.btn-rojo:hover,
+.btn-rojo:focus { 
+  background: var(--btn-color);
+}*/
+
+body {
+    font-family: basic-sans, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.125em;
+    line-height: 1.6;
+    color: #333;
+    background: #ddd;
+  }
+  
+  .content {
+    background: white;
+    width: 70vw;
+    padding: 3em;
+    box-shadow: 0 0 3em rgba(0,0,0,.15);
+  }
